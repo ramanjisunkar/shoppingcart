@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+</style>
+</head>
+<body >
+<div class="row">
+
+  <div class="column">
+    <img src="C:\postcourse\shoppingcart\src\main\webapp\images\pen10.jpg" alt="pen" style="width:50%">
+  </div>
+  <div class="column">
+    <img alt="book" src="images/pen1.jpg" style="width: 400px; height: 300px;">
+  </div>
+  <div class="column">
+    <img src="img_mountains.jpg" alt="bag" style="width:100%">
+  </div>
+</div>
+<div class="row">
+
+  <div class="column">
+    <img src="..images/pen1.jpg" alt="car" style="width:50%">
+  </div>
+  <div class="column">
+    <img alt="bag" src="images/pen1.jpg" style="width: 400px; height: 300px;">
+  </div>
+  <div class="column">
+    <img src="img_mountains.jpg" alt="box" style="width:100%">
+  </div>
+</div>
+
+</body>
+</html>
