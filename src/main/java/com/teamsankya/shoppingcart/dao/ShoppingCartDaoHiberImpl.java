@@ -32,12 +32,11 @@ public class ShoppingCartDaoHiberImpl implements ShoppingCartDao {
 	@Override
 	public List<ProductBean> getDataFromDaoLayerr(String name) {
 		LOGGER.info("inside getDataFromDaoLayerr() of"+this.getClass().getSimpleName());
-		String hql="from Product where pName='"+name+"'";
+		String hql="from ProductBean where product_Name='"+name+"'";
 		org.hibernate.query.Query<ProductBean>q=sessionFactory.openSession().createQuery(hql);
 		List<ProductBean> res=q.list();
 		LOGGER.info("db results returning from getDataFromDaoLayerr() of"+this.getClass().getSimpleName());
-		/*Criteria cri=sessionFactory.getCurrentSession().createCriteria(Product.class).add(Restrictions.like("pname",("%"+name+"%")));
-		Criteria.*/
+	
 		return res;
 	}
 

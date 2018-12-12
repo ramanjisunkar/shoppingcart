@@ -34,41 +34,45 @@ public class MainController {
 	@RequestMapping(value="getdata",method =RequestMethod.GET)
 	public ModelAndView productSearch(String name,ModelAndView view,@RequestParam(required = false)Integer page)
 	{
-		
+		System.out.println("page value="+page);
 		LOGGER.info("inside"+this.getClass().getSimpleName());
 		LOGGER.info("inside productSearch() method");
 		LOGGER.info("calling getDataFromServiceLayer() method");
 		List<ProductBean> res=cartservice.getDataFromServiceLayer(name);
 		PagedListHolder<ProductBean> pagedListHolder = new PagedListHolder<ProductBean>(res);
-		pagedListHolder.setPageSize(6);
+		pagedListHolder.setPageSize(10);
 		int pag=pagedListHolder.getPageCount();
-		System.out.println("page count="+pag);
+		System.out.println("page count"+pag);
 		String pname=null;
 		for (ProductBean product : res) {
 			pname=product.getProduct_Name();
 			System.out.println(product.getProduct_Name());
 		}
-		//below code for pagination Next and Previous
+		
 		if(pname!=null && pname.equals(name))
 		{	
 			view.setViewName("response.jsp");
 			view.addObject("maxPages", pagedListHolder.getPageCount());
 			if(page==null || page < 1 || page > pagedListHolder.getPageCount())
 				page=1;
+			System.out.println(" first if page="+page);
 			view.addObject("page", page);
 			if(page == null || page < 1 || page > pagedListHolder.getPageCount())
 			{
+				System.out.println("second if");
 	            pagedListHolder.setPage(0);
 	            view.addObject("product", pagedListHolder.getPageList());
 	            }
 	            else if(page <= pagedListHolder.getPageCount())
 	            {
+	            	System.out.println("else if");
 	                pagedListHolder.setPage(page-1);
 	                view.addObject("product", pagedListHolder.getPageList());
 	            }
 	        view.addObject("page", page);
 			view.addObject("response",res);
 			view.addObject("pname", pname);
+			//view.addObject("pagenation", pagedListHolder);
 			LOGGER.info("view returning from productSearch() method");
 			return view;
 		}

@@ -178,8 +178,8 @@ section {
 		<div class="column">
 			<tr>
 			
-			<img src=/images<%=bean.getProduct_Id()%> alt="superpen" style="width:50%"><br>
-				Id:<%=bean.getProduct_Id()%><br> Name:<%=bean.getProduct_Name()%><br>
+			<img src="images/<%=bean.getProduct_Id()%>.jpg"alt="superpen" style="width:10%"><br>
+				<%-- Id:<%=bean.getProduct_Id()%><br> --%> Name:<%=bean.getProduct_Name()%><br>
 				 Description:<%=bean.getProduct_disc()%><br>
 				Price:<%=bean.getProduct_Price()%><br>
 				
@@ -190,6 +190,8 @@ section {
 			}
 		%>
 
-</body>
-<%@include file="paging.jsp"%>
+</body><br>
+<footer>
+<%@include file="paging.jsp"%></footer>
+
 </html>

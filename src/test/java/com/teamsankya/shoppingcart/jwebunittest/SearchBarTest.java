@@ -19,6 +19,7 @@ public class SearchBarTest extends TestCase {
 		tester.assertFormPresent();
 		tester.setFormElement("name", "bbok");
 		tester.submit();
+		tester.assertTitleEquals("sucess page");
 		
 		
 		

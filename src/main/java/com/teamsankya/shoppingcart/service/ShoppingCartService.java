@@ -16,6 +16,7 @@ public class ShoppingCartService {
 	final static Logger LOGGER = Logger.getLogger(ShoppingCartDaoHiberImpl.class);
 	@Autowired
 	private ShoppingCartDao shopcartdao;
+	
 	public List<ProductBean> getDataFromServiceLayer(String name)
 	{
 		LOGGER.info("inside"+this.getClass().getSimpleName());

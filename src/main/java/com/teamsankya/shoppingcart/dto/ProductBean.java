@@ -52,7 +52,8 @@ public class ProductBean {
 	}
 	@Override
 	public String toString() {
-		return "Product [pId=" + product_Id + ", pName=" + product_Name + ", pPrice=" + product_Price + ", pdisc=" + product_disc + "]";
+		return "ProductBean [product_Id=" + product_Id + ", product_Name=" + product_Name + ", product_Price="
+				+ product_Price + ", product_disc=" + product_disc + ", product_Imgloc=" + product_Imgloc + "]";
 	}
 	
 

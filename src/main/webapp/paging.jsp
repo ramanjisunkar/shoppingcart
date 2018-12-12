@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@page import= "org.springframework.beans.support.PagedListHolder"%>
+   <%@page import="com.teamsankya.shoppingcart.dto.ProductBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,6 +15,7 @@
 
   
 </div>
+<%-- <% PagedListHolder<ProductBean> pagedListHolder= (PagedListHolder<ProductBean>)request.getAttribute("pagenation");%> --%>
   <c:url value="getdata" var="prev">
         <c:param name="page" value="${page-1}"/>
         <c:param name="name" value="${pname}"/>
@@ -20,7 +23,6 @@
     <c:if test="${page > 1}">
         <a href="<c:out value="${prev}" />" class="pn prev">Prev</a>
     </c:if>
-
     <c:forEach begin="1" end="${maxPages}" step="1" varStatus="i">
         <c:choose>
             <c:when test="${page == i.index}">
@@ -33,7 +35,7 @@
                 </c:url>
                 <a href='<c:out value="${url}" />'>${i.index}</a>
             </c:otherwise>
-        </c:choose>
+        </c:choose> 
     </c:forEach>
     <c:url value="getdata" var="next">
         <c:param name="page" value="${page + 1}"/>
